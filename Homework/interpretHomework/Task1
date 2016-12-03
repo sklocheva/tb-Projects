@@ -1,0 +1,44 @@
+Develop a simple command interpreter with the following properties:
+
+The interpreter takes commands from the standard input. The commands that will be currently supported are the following:
+
+    reverse
+    count-words
+    reverse-words
+  
+- The `reverse` command has the following syntax:
+
+		reverse <string>
+
+	It reverses the letters in the provided string. For example
+
+		input: reverse abra cadabra
+		output: arbadac arba
+
+- The `count-words` command has the following syntax:
+		
+		count-words <string>
+	
+	It returns the number of words in the provided string. For example
+		
+		input: count-words abra cadabra
+		output: 2
+	
+- The `reverse-words` command has the following syntax:
+	
+		reverse-words <string>
+
+	It reverses the order of the words in the provided string. For example
+		
+		input: reverse-words abra cadabra
+		output: cadabra abra
+		
+- Possible extensions:
+	- `substring <str> <substr>` - checks if `substr` is substring of `str`
+	- `capitalize <str>` - makes all leters in `str` capital
+	- `translate-squeese <str>` - removes depetitions of consequtive chars in `str`
+	- `bin2dec <bin_number>` - translates `bin_number` from binary to decimal format
+	- `rad2deg <rad_angle>` - translates angle from radians to degrees
+	- `q|exit|end` - quits the interpreter
+	- `makedir <name>` - creates directory called `name` in the current dir
+	- `cd <name>` - changes the current directory
