@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Apps/Git/admin-tb-2016/GarbageCollector/postgresql-9.4.1209.jre6.jar"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
