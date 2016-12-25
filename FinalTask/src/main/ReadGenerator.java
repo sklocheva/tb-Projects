@@ -2,7 +2,10 @@ package main;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.Callable;
 
 import main.Constants.Const;
 import main.factory.Factory;
@@ -13,7 +16,7 @@ import main.factory.Factory;
  * @author Sophia
  *
  */
-public class ReadGenerator implements Runnable {
+public class ReadGenerator implements Callable<String> {
 
 	private String fileName;
 
@@ -24,6 +27,7 @@ public class ReadGenerator implements Runnable {
 	private String fileLine;
 	private int lineCount = 0;
 
+	StringBuffer results;
 	String countryCode;
 	int factoryNumber;
 
@@ -40,26 +44,29 @@ public class ReadGenerator implements Runnable {
 	 * execution output of the command.
 	 */
 	@Override
-	public synchronized void run() {
+	public synchronized String call() throws IOException{
 
 		factory = new Factory(this.countryCode, this.factoryNumber);
 
-		try {
 			inputFile = new File(this.fileName);
 			reader = new Scanner(inputFile);
+			results = new StringBuffer();
 			while (reader.hasNextLine()) {
 				lineCount++;
 				fileLine = reader.nextLine().trim();
 				// prints out the result from the command
-				System.out.printf(Const.FILE_STATUS_FORMATTING, factory.goToFactory(fileLine), lineCount, countryCode,
-						factoryNumber, this.fileName);
+//				System.out.printf(Const.FILE_STATUS_FORMATTING, factory.goToFactory(fileLine), lineCount, countryCode,
+//						factoryNumber, this.fileName);
+				
+				results.append(String.format(Const.FILE_STATUS_FORMATTING, factory.goToFactory(fileLine), lineCount, countryCode,
+						factoryNumber, this.fileName));
+				
 			}
 			reader.close();
-			System.out.printf(Const.FINISHED_READING_FILE_FORMATTING, this.fileName);
+			return results.toString();
+//			System.out.printf(Const.FINISHED_READING_FILE_FORMATTING, this.fileName);
+//			return String.format(Const.FINISHED_READING_FILE_FORMATTING, this.fileName);
 
-		} catch (IOException e) {
-			System.out.println(Const.IO_ERROR_MESSAGE);
-		}
 	}
 
 }

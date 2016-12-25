@@ -3,8 +3,11 @@ package main;
 import java.io.InputStream;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import main.factory.Factory;
@@ -36,8 +39,8 @@ public class InputMain {
 		Scanner inscan = new Scanner(instr);
 
 		String consoleLine;
-		String fileName1 = "orders.txt";
-		String fileName2 = "orders2.txt";
+		String fileName1 = "orders2copy.txt";
+		String fileName2 = "orders.txt";
 
 		try {
 			while (true) {
@@ -51,20 +54,32 @@ public class InputMain {
 					ReadGenerator task1 = new ReadGenerator(fileName1, "BG", 2);
 					ReadGenerator task2 = new ReadGenerator(fileName2, "BG", 4);
 
-					ExecutorService executor = Executors.newFixedThreadPool(2);
-					executor.execute(task1);
-					executor.execute(task2);
+//					ExecutorService executor = Executors.newFixedThreadPool(2);
+					ThreadPoolExecutor executor = (ThreadPoolExecutor)Executors.newFixedThreadPool(2);
+					
+//					executor.execute(task1);
+//					executor.execute(task2);
+					Future<String> result1 = executor.submit(task1);
+					Future<String> result2 = executor.submit(task2);
+
+					System.out.println(result1.get());
+					System.out.println(result2.get());
+					
 					executor.shutdown();
 					executor.awaitTermination(1, TimeUnit.HOURS);
 
 				} else if (consoleLine.equals("exit")) {
 					throw new NoSuchElementException();
 				}
+				
 				System.out.println(factory.goToFactory(consoleLine));
 			}
 		} catch (NoSuchElementException e) {
 			// typed exit
 		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			inscan.close();

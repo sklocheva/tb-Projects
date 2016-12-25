@@ -30,25 +30,12 @@ public class ProductAssembly implements ProductAssemblyPlan {
 	public Product getProduct() {
 		return this.product;
 	}
-
-	/**
-	 * <p>
-	 * The method 'setEngineTypeForValidation' is used to validate whether the
-	 * engine is Electric. If it is then the vehicle shouldn't have a
-	 * transmission.
-	 * </p>
-	 * <p>
-	 * The engineType is set in the 'buildVehicleEngine' method and used in
-	 * 'buildVehicleTransmission' method.
-	 * </p>
-	 * 
-	 * @param engineType
-	 *            : the type of the engine, used to check if it's 'E'.
-	 */
-	private void setEngineTypeForValidation(String engineType) {
-		this.engineType = engineType;
+	
+	public String getEngineType(){
+		return engineType;
 	}
 
+	
 	@Override
 	public void buildVehicleModel(String vehicleType, String modelParam) throws IllegalArgumentException {
 
@@ -71,9 +58,9 @@ public class ProductAssembly implements ProductAssemblyPlan {
 		splittedEngine = splitValues.splitString(engineParam);
 		ProductValidationPlan engine = engineFactory.makeEngine(splittedEngine[0], splittedEngine[1]);
 		resultsEngine = engine.validateProduct();
-
-		setEngineTypeForValidation(resultsEngine[0]);
-
+		
+			engineType = resultsEngine[0];
+		
 		this.product.setVehicleEngineType(resultsEngine[0]);
 		this.product.setVehicleEnginePower(resultsEngine[1]);
 		this.product.setVehicleEngineTurbo(resultsEngine[2]);
@@ -81,7 +68,7 @@ public class ProductAssembly implements ProductAssemblyPlan {
 	}
 
 	@Override
-	public synchronized void buildVehicleTransmission(String transParam) throws IllegalArgumentException {
+	public void buildVehicleTransmission(String transParam, String engineType) throws IllegalArgumentException {
 		// threads get mixed up here, fixed with synchronized
 		// if the engine is electric, then we don't have transmission
 		if (this.engineType.equals("E")) {
@@ -96,7 +83,7 @@ public class ProductAssembly implements ProductAssemblyPlan {
 			}
 
 		} else {
-			//if no parameters are inputed
+			// if no parameters are inputed
 			if (transParam == null || transParam.equals("transmission=")) {
 
 				this.product.setVehicleTransmissionType(Const.DEFAULT_TRANSMISSION_TYPE);// default

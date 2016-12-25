@@ -46,7 +46,7 @@ public interface ProductAssemblyPlan {
 	 * 
 	 * @param transParam
 	 */
-	public void buildVehicleTransmission(String transParam);
+	public void buildVehicleTransmission(String transParam, String engineType);
 
 	/**
 	 * The method 'getProduct' returns the whole product.

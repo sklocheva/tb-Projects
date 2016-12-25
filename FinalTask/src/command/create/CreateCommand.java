@@ -49,9 +49,9 @@ public class CreateCommand implements Command {
 				vehicleAssembly.buildVehicleModel(parts[0], parts[1]);
 
 				if (parts.length == 4) {
-					vehicleAssembly.buildVehicleTransmission(parts[3]);
+					vehicleAssembly.buildVehicleTransmission(parts[3], vehicleAssembly.getEngineType());
 				} else {
-					vehicleAssembly.buildVehicleTransmission(null);
+					vehicleAssembly.buildVehicleTransmission(null, vehicleAssembly.getEngineType());
 				}
 				// get the whole product
 				concreteProduct = vehicleAssembly.getProduct();
