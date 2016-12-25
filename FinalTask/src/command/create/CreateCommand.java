@@ -38,11 +38,15 @@ public class CreateCommand implements Command {
 		try {
 			String[] parts = argument.split(Const.SPACE_SEPARATOR);
 
+			Thread.sleep(1000);
 			if (parts.length <= 4 && parts.length >= 3) {
 
 				vehicleAssembly = new ProductAssembly();
+
+				synchronized (vehicleAssembly) {
+					vehicleAssembly.buildVehicleEngine(parts[2]);
+				}
 				vehicleAssembly.buildVehicleModel(parts[0], parts[1]);
-				vehicleAssembly.buildVehicleEngine(parts[2]);
 
 				if (parts.length == 4) {
 					vehicleAssembly.buildVehicleTransmission(parts[3]);
@@ -61,7 +65,7 @@ public class CreateCommand implements Command {
 				throw new IllegalArgumentException();
 			}
 
-		} catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException | InterruptedException e) {
 			return Const.ERROR_OUTPUT_MESSAGE;
 		}
 	}

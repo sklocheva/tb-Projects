@@ -25,7 +25,7 @@ public class WriteToFile {
 	 *            the instance of Product, holds the whole information of the
 	 *            new record.
 	 */
-	public void write(Product product) {
+	public synchronized void write(Product product) {
 
 		try {
 			File myFile = new File(Const.VEHICLE_HISTORY_FILE_NAME);
@@ -42,11 +42,11 @@ public class WriteToFile {
 					product.getVehicleEngineEmissionStandard(), product.getVehicleTransmissionType(),
 					product.getVehicleTransmissionGears(), Const.DEFAULT_ISDISASS_INPUT));
 
-			Thread.sleep(1000);
+			
 			outputStream.flush();
 			outputStream.close();
 
-		} catch (IOException | InterruptedException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

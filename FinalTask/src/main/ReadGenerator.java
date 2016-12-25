@@ -40,7 +40,7 @@ public class ReadGenerator implements Runnable {
 	 * execution output of the command.
 	 */
 	@Override
-	public void run() {
+	public synchronized void run() {
 
 		factory = new Factory(this.countryCode, this.factoryNumber);
 

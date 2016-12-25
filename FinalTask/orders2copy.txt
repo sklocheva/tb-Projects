@@ -1,0 +1,12 @@
+create suv model=Q5-hatchback engine=P-8LT-euro5 transmission=Manual-4
+create suv model=Q3 engine=P-180hp-euro3 transmission=Auto
+create car model=A8 engine=E transmission=
+create suv model=Q5-hatchback engine=P-8LT-euro5 transmission=Manual-4
+create suv model=Q3 engine=P-180hp-euro3 transmission=Auto
+create car model=A8 engine=E transmission=
+create suv model=Q5-hatchback engine=P-8LT-euro5 transmission=Manual-4
+create suv model=Q3 engine=P-180hp-euro3 transmission=Auto
+create car model=A8 engine=E transmission=
+create suv model=Q5-hatchback engine=P-8LT-euro5 transmission=Manual-4
+create suv model=Q3 engine=P-180hp-euro3 transmission=Auto
+create car model=A8 engine=E transmission=
