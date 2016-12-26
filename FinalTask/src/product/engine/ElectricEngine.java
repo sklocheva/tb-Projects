@@ -9,7 +9,7 @@ import product.ProductValidationPlan;
  * does not have emission standards, turbo, and its power is always 535kW.
  * <p>
  * <p>
- * <b>note: </b> It also does not have transission, but this is validated in the
+ * <b>note: </b> It also does not have transmission, but this is validated in the
  * transmission part.
  * </p>
  * 

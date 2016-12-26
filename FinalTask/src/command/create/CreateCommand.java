@@ -38,7 +38,6 @@ public class CreateCommand implements Command {
 		try {
 			String[] parts = argument.split(Const.SPACE_SEPARATOR);
 
-			Thread.sleep(1000);
 			if (parts.length <= 4 && parts.length >= 3) {
 
 				vehicleAssembly = new ProductAssembly();
@@ -65,7 +64,7 @@ public class CreateCommand implements Command {
 				throw new IllegalArgumentException();
 			}
 
-		} catch (IllegalArgumentException | InterruptedException e) {
+		} catch (IllegalArgumentException e) {
 			return Const.ERROR_OUTPUT_MESSAGE;
 		}
 	}

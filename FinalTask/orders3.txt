@@ -1,0 +1,48 @@
+create suv model=Q5-hatchback engine=P-8LT-euro5 transmission=Manual-4
+create car model=A3 engine=D-1L-euro5
+create car model=A8 engine=E transmission=
+create car model=A8-kombi engine=P-684hp-euro3 transmission=Auto
+create suv model=A8 engine=P-130hp-euro3 transmission=Auto
+create suv model=Q4 engine=D-180hpT
+create suv model=Q8 engine=D-180hp transmission=Manual
+create suv model=Q2 engine=D-99hpT transmission=Auto
+create car model=A1 engine=E transmission=
+create suv model=Q2 engine=D-6L-T transmission=Auto
+create car model=A3-sedan engine=D-180hpT-euro5
+create suv model=Q3 engine=E
+create suv model=Q5-hatchback engine=P-8LT-euro5 transmission=Manual-3
+create car model=A3 engine=D-180hpT-euro5
+create car model=A8 engine=E transmission=
+create suv model=Q5 engine=D-6LT-euro5
+create car model=A1 engine=D-180hpT-euro5 transmission=Auto-6
+create suv model=Q5 engine=P-5LT-euro5 transmission=Manual-5
+create suv model=Q5 engine=E-euro5
+create car model=A3-sedan engine=E transmission=
+create suv model=Q5 engine=P-8LT-euro3 transmission=Auto-5
+create suv model=Q4 engine=P-200hp transmission=Manual
+create suv model=Q8 engine=P-987hp transmission=Auto-8
+create suv model=Q2 engine=P-684hp transmission=Auto
+create suv model=Q5-hatchback engine=P-8LT-euro5 transmission=Manual-4
+create car model=A3 engine=D-1L-euro5
+create car model=A8 engine=E transmission=
+create car model=A8-kombi engine=P-684hp-euro3 transmission=Auto
+create suv model=A8 engine=P-130hp-euro3 transmission=Auto
+create suv model=Q4 engine=D-180hpT
+create suv model=Q8 engine=D-180hp transmission=Manual
+create suv model=Q2 engine=D-99hpT transmission=Auto
+create car model=A1 engine=E transmission=
+create suv model=Q2 engine=D-6L-T transmission=Auto
+create car model=A3-sedan engine=D-180hpT-euro5
+create suv model=Q3 engine=E
+create suv model=Q5-hatchback engine=P-8LT-euro5 transmission=Manual-3
+create car model=A3 engine=D-180hpT-euro5
+create car model=A8 engine=E transmission=
+create suv model=Q5 engine=D-6LT-euro5
+create car model=A1 engine=D-180hpT-euro5 transmission=Auto-6
+create suv model=Q5 engine=P-5LT-euro5 transmission=Manual-5
+create suv model=Q5 engine=E-euro5
+create car model=A3-sedan engine=E transmission=
+create suv model=Q5 engine=P-8LT-euro3 transmission=Auto-5
+create suv model=Q4 engine=P-200hp transmission=Manual
+create suv model=Q8 engine=P-987hp transmission=Auto-8
+create suv model=Q2 engine=P-684hp transmission=Auto

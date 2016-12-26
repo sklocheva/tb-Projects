@@ -11,7 +11,7 @@ import product.ProductValidationPlan;
  */
 public class EngineFactory {
 	/**
-	 * The 'makeEngine' method takes the vehicle's engine type and cheks if it
+	 * The 'makeEngine' method takes the vehicle's engine type and checks if it
 	 * has a class for it. When it finds it it returns that class with it's
 	 * parameters set to it.
 	 * 

@@ -28,6 +28,8 @@ public class WriteToFile {
 	public synchronized void write(Product product) {
 
 		try {
+
+			Thread.sleep(1000);
 			File myFile = new File(Const.VEHICLE_HISTORY_FILE_NAME);
 			if (!myFile.exists()) {
 				myFile.createNewFile();
@@ -46,7 +48,7 @@ public class WriteToFile {
 			outputStream.flush();
 			outputStream.close();
 
-		} catch (IOException e) {
+		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
